@@ -1,19 +1,27 @@
 package com.example.tab_fragmentos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Mobiliario {
 
+    @SerializedName("nombre_mobiliario")
     private String nombre;
+
+    @SerializedName("precio_unitario")
     private float precio;
+
+    @SerializedName("cantidad")
     private int cantidad;
 
     public Mobiliario(String nombre, float precio, int cantidad) {
         this.nombre = nombre;
         this.precio = precio;
+        this.cantidad = cantidad;
     }
 
     public String toStringMobiliario(){
         return "Tipo: "+nombre+
-                "\nCantidad: "+cantidad+" x$ "+precio+
+                "\nCantidad: "+cantidad+" x $"+precio+
                 "\nPrecio = $"+getTotal();
     }
 

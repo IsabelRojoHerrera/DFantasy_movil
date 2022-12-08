@@ -1,21 +1,27 @@
 package com.example.tab_fragmentos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Consumidor {
 
+    @SerializedName("nombre")
     private String nombre;
-    private String direccion;
+
+    @SerializedName("apellido")
+    private String apellido;
+
+    @SerializedName("telefono")
     private String telefono;
 
-    public Consumidor(String nombre, String direccion, String telefono) {
+    public Consumidor(String nombre, String apellido, String telefono) {
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.apellido = apellido;
         this.telefono = telefono;
     }
 
     public String toStringConsumidor(){
         return nombre+
-                "\n"+telefono+
-                "\n"+direccion;
+                "\n"+telefono;
     }
 
     public String getNombre() {
@@ -24,14 +30,6 @@ public class Consumidor {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
     }
 
     public String getTelefono() {

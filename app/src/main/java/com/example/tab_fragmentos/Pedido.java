@@ -1,27 +1,39 @@
 package com.example.tab_fragmentos;
 
-import java.lang.reflect.Array;
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class Pedido {
 
-    private String numPedido;
+    @SerializedName("id")
+    private long numPedido;
+
+    @SerializedName("estatus")
     private String status;
+
+    @SerializedName("consumidor")
     private Consumidor consumidor;
+
+    @SerializedName("direccion")
+    private Direccion direccion;
+
+    @SerializedName("detalle_pedidos")
     private ArrayList<Mobiliario> mobiliario;
+
     private float total;
 
-    public Pedido(String numPedido,Consumidor consumidor, ArrayList<Mobiliario> mobiliario ) {
+    public Pedido(Long numPedido, Consumidor consumidor, Direccion direccion, ArrayList<Mobiliario> mobiliario ) {
         this.numPedido = numPedido;
         this.status = "POR ENTREGAR";
+        this.direccion = direccion;
         this.consumidor = consumidor;
         this.mobiliario = mobiliario;
     }
 
     public String toStringPedido(){
-        return numPedido +
-                "\n"+status+
-                "\n"+consumidor.toStringConsumidor();
+        return  "08/12/2022"+
+                "\n"+consumidor.toStringConsumidor()+
+                "\n"+direccion.toStringDireccion();
     }
 
     public String toStringDetallePedido(){
@@ -44,11 +56,11 @@ public class Pedido {
         return total;
     }
 
-    public String getNumPedido() {
+    public long getNumPedido() {
         return numPedido;
     }
 
-    public void setNumPedido(String numPedido) {
+    public void setNumPedido(long numPedido) {
         this.numPedido = numPedido;
     }
 
